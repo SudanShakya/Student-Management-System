@@ -19,4 +19,12 @@ Route::get('/students',function() {
     return view('students');
 });
 
+Route::get('/students',function() {
+    return view('students.index');
+});
+
 Route::get('students/create','StudentController@create')-> name('students.create');
+
+Route::post('students','StudentController@store')-> name('students.store');
+
+// Route::resource('students','StudentController');

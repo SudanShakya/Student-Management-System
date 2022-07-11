@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('Student.index',compact('students'));
     }
 
     /**
@@ -34,7 +36,35 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->get('name');
+        $mobile = $request->get('mobile');
+        $email = $request->get('email');
+        $citizenship = $request->get('citizenship');
+        $gender = $request->get('gender');
+        $blood_group = $request->get('blood_group');
+        $perm_address = $request->get('perm_address');
+        $temp_address = $request->get('temp_address');
+        $dob = $request -> get('dob');
+        $is_active = $request->get('is_active');
+        $is_almuni = $request->get('is_almuni');
+        $picture = $request->get('picture');
+
+        Student::create([
+            'name' => $name,
+            'mobile' => $mobile,
+            'email' => $email,
+            'citizenship' => $citizenship,
+            'gender' => $gender,
+            'blood_group' => $blood_group,
+            'perm_address' => $perm_address,
+            'temp_address' => $temp_address,
+            'dob' => $dob,
+            'is_active' => true,
+            'is_almuni' => true,
+            'picture' => $picture
+        ]);
+
+        return redirect()->route('students.index');
     }
 
     /**
