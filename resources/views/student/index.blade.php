@@ -4,7 +4,7 @@
         <div class="col-12">
         <div class="card">
             <div class="card-header">
-            <h3 class="card-title">Fixed Header Table</h3>
+            <h3 class="card-title">Students Detail</h3>
 
             <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -25,68 +25,35 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Mobile</th>
-                    <th>Reason</th>
+                    <th>Email</th>
+                    <th>Citizenship</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Permanent Address</th> 
+                    <th>Temporary Address</th>
+                    <th>Date of Birth</th>
+                    <th>Is Active</th>
+                    <th>Is Alumini</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>183</td>
-                    <td>John Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-success">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>219</td>
-                    <td>Alexander Pierce</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-warning">Pending</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>657</td>
-                    <td>Bob Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>175</td>
-                    <td>Mike Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>134</td>
-                    <td>Jim Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-success">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>494</td>
-                    <td>Victoria Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-warning">Pending</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>832</td>
-                    <td>Michael Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>982</td>
-                    <td>Rocky Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="tag tag-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
+                    @foreach($students as $student)
+                        <tr>
+                            <td>{{ $student->id }}</td>
+                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->mobile }}</td>
+                            <td>{{ $student->email }}</td>
+                            <td>{{ $student->citizenship }}</td>
+                            <td>{{ $student->gender }}</td>
+                            <td>{{ $student->blood_group }}</td>
+                            <td>{{ $student->perm_address }}</td>
+                            <td>{{ $student->temp_address }}</td>
+                            <td>{{ $student->dob }}</td>
+                            <td>{{ $student->is_active }}</td>
+                            <td>{{ $student->is_almuni }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
             </div>

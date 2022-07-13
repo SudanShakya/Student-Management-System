@@ -14,8 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
+        //select * from students
         $students = Student::all();
-        return view('Student.index',compact('students'));
+        return view('student.index',compact('students'));
     }
 
     /**
@@ -49,22 +50,27 @@ class StudentController extends Controller
         $is_almuni = $request->get('is_almuni');
         $picture = $request->get('picture');
 
-        Student::create([
-            'name' => $name,
-            'mobile' => $mobile,
-            'email' => $email,
-            'citizenship' => $citizenship,
-            'gender' => $gender,
-            'blood_group' => $blood_group,
-            'perm_address' => $perm_address,
-            'temp_address' => $temp_address,
-            'dob' => $dob,
-            'is_active' => true,
-            'is_almuni' => true,
-            'picture' => $picture
-        ]);
-
-        return redirect()->route('students.index');
+        try {
+            Student::create([
+                'name' => $name,
+                'mobile' => $mobile,
+                'email' => $email,
+                'citizenship' => $citizenship,
+                'gender' => $gender,
+                'blood_group' => $blood_group,
+                'perm_address' => $perm_address,
+                'temp_address' => $temp_address,
+                'dob' => $dob,
+                'is_active' => true,
+                'is_almuni' => true,
+                'picture' => $picture
+            ]);
+            return redirect()->route('student.index');
+        }
+        catch(\Exception $e) {
+            dd($e->getMessage());
+            return redirect() -> back();
+        }
     }
 
     /**

@@ -14,7 +14,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name">
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter Full Name">
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile</label>
