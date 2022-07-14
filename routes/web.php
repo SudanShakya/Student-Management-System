@@ -11,6 +11,7 @@
 |
 */
 
+//Route for students
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,3 +27,6 @@ Route::get('students/create','StudentController@create')-> name('students.create
 Route::post('students','StudentController@store')-> name('students.store');
 
 // Route::resource('students','StudentController');
+
+//route for faculty
+Route::resource('faculty','FacultyController');
