@@ -30,3 +30,9 @@ Route::post('students','StudentController@store')-> name('students.store');
 
 //route for faculty
 Route::resource('faculty','FacultyController');
+
+//route for semester
+Route::resource('semester','SemesterController');
+
+//route for batch
+Route::resource('batch','BatchController');
