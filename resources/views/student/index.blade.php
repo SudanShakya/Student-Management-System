@@ -7,16 +7,10 @@
             <h3 class="card-title">Students Detail</h3>
 
             <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-default">
-                    <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                </div>
-            </div>
+               <a href="{{ route('students.create') }}" class="btn btn-primary btn-sm">
+                   Add Student
+                </a>
+            </div>            
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -35,6 +29,7 @@
                     <th>Date of Birth</th>
                     <th>Is Active</th>
                     <th>Is Alumini</th>
+                    <!-- <th>Action</th> -->
                 </tr>
                 </thead>
                 <tbody>
@@ -52,6 +47,16 @@
                             <td>{{ $student->dob }}</td>
                             <td>{{ $student->is_active }}</td>
                             <td>{{ $student->is_almuni }}</td>
+                            <!-- <td>
+                                <a href="#" class="btn btn-info btn-sm">
+                                    <span class="fa fa-eye"></span></a>
+
+                                    <a href="#" class="btn btn-warning btn-sm">
+                                    <span class="fa fa-edit"></span></a>
+
+                                    <a href="#" class="btn btn-danger btn-sm">
+                                    <span class="fa fa-trash"></span></a>
+</td> -->
                         </tr>
                     @endforeach
                 </tbody>

@@ -61,8 +61,8 @@ class StudentController extends Controller
                 'perm_address' => $perm_address,
                 'temp_address' => $temp_address,
                 'dob' => $dob,
-                'is_active' => true,
-                'is_almuni' => true,
+                'is_active' => isset($is_active),
+                'is_almuni' => isset($is_almuni),
                 'picture' => $picture
             ]);
             return redirect()->route('student.index');

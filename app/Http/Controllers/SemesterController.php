@@ -42,6 +42,7 @@ class SemesterController extends Controller
         try {
             Semester::create([
                 'semester_name' => $semester_name,
+                'is_active' => isset($is_active)
             ]);
             return redirect()->route('semester.index');
         }
