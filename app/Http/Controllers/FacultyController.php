@@ -36,11 +36,11 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('name');
+        $faculty_name = $request->get('faculty_name');
 
         try {
             Faculty::create([
-                'name' => $name,
+                'faculty_name' => $faculty_name,
             ]);
             return redirect()->route('faculty.index');
         }
@@ -85,9 +85,9 @@ class FacultyController extends Controller
     {
         $faculty = Faculty::find($id);
         
-        $name = $request->get('name');
+        $faculty_name = $request->get('faculty_name');
 
-        $faculty['name'] = $name;
+        $faculty['faculty_name'] = $faculty_name;
 
         $faculty->update();
         return redirect() -> route('faculty.index',$id);

@@ -13,8 +13,8 @@
             @csrf <!--  cross origin side reference -->
             <div class="card-body">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter Faculty Name">
+                    <label for="faculty_name">Faculty Name</label>
+                    <input name="faculty_name" type="text" class="form-control" id="faculty_name" placeholder="Enter Faculty Name">
                 </div>
                 
             </div>

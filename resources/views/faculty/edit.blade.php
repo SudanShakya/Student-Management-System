@@ -14,8 +14,8 @@
             @csrf <!--  cross origin side reference -->
             <div class="card-body">
                 <div class="form-group">
-                    <label for="name">Faculty Name</label>
-                    <input name="name" value={{ $faculty->name }} type="text" class="form-control" id="name" placeholder="Enter Facuty Name">
+                    <label for="faculty_name">Faculty Name</label>
+                    <input name="faculty_name" value={{ $faculty->faculty_name }} type="text" class="form-control" id="faculty_name" placeholder="Enter Facuty Name">
                 </div>
             </div>
             <!-- /.card-body -->

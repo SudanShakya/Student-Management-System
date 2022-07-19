@@ -16,7 +16,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Faculty Name</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -24,7 +24,7 @@
                     @foreach($faculties as $faculty)
                         <tr>
                             <td>{{ $faculty->id }}</td>
-                            <td>{{ $faculty->name }}</td>
+                            <td>{{ $faculty->faculty_name }}</td>
                             <td>
                                 <a href="{{ route('faculty.edit',$faculty->id) }}" class="btn btn-warning btn-sm">
                                 <span class="fa fa-edit"></span></a>
