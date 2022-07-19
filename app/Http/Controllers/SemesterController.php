@@ -60,7 +60,7 @@ class SemesterController extends Controller
      */
     public function show($id)
     {
-        //
+        $semester = Semester::find($id);
     }
 
     /**
@@ -71,7 +71,8 @@ class SemesterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $semester = Semester::find($id);
+        return view ('semester.edit',compact('semester'));
     }
 
     /**
@@ -83,7 +84,16 @@ class SemesterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $semester = Semester::find($id);
+        
+        $name = $request->get('semester_name');
+        $is_active = $request->get('is_active');
+
+        $semester['semester_name'] = $semester_name;
+        $semester['is_active'] = $is_active;
+
+        $semester->update();
+        return redirect() -> route('semester.show',$id);
     }
 
     /**
@@ -94,6 +104,8 @@ class SemesterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $semester = Semester::find($id);
+        $semester -> delete();
+        return redirect() -> route('semester.index');
     }
 }

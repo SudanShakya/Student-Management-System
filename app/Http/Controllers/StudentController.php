@@ -49,6 +49,7 @@ class StudentController extends Controller
         $is_active = $request->get('is_active');
         $is_almuni = $request->get('is_almuni');
         $picture = $request->get('picture');
+        
 
         try {
             Student::create([
@@ -81,7 +82,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        //select * from student where id  = $id
+        $student = Student::find($id);
+        return view ('student.show',compact('student'));
     }
 
     /**
@@ -92,7 +95,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view ('student.edit',compact('student'));
     }
 
     /**
@@ -104,7 +108,37 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+        
+        $name = $request->get('name');
+        $mobile = $request->get('mobile');
+        $email = $request->get('email');
+        $citizenship = $request->get('citizenship');
+        $gender = $request->get('gender');
+        $blood_group = $request->get('blood_group');
+        $perm_address = $request->get('perm_address');
+        $temp_address = $request->get('temp_address');
+        $dob = $request -> get('dob');
+        $is_active = $request->get('is_active');
+        $is_almuni = $request->get('is_almuni');
+        $picture = $request->get('picture');
+
+        $student['name'] = $name;
+        $student['mobile'] = $mobile;
+        $student['email'] = $email;
+        $student['citizenship'] = $citizenship;
+        $student['gender'] = $gender;
+        $student['blood_group'] = $blood_group;
+        $student['perm_address'] = $perm_address;
+        $student['temp_address'] = $temp_address;
+        $student['dob'] = $dob;
+        $student['is_active'] = isset($is_active);
+        $student['is_almuni'] = isset($is_almuni);
+
+
+
+        $student->update();
+        return redirect() -> route('student.show',$id);
     }
 
     /**
@@ -115,6 +149,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student -> delete();
+        return redirect() -> route('student.index');
     }
 }

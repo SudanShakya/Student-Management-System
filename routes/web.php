@@ -26,6 +26,14 @@ Route::get('students/create','StudentController@create')-> name('students.create
 
 Route::post('students','StudentController@store')-> name('students.store');
 
+Route::get('students/{id}','StudentController@show')->name('students.show');
+
+Route::get('students/{id}/edit','StudentController@edit')->name('students.edit');
+
+Route::patch('students/{id}','StudentController@update')->name('students.update');
+
+Route::delete('students/{id}','StudentController@destroy')->name('students.destroy');   
+
 // Route::resource('students','StudentController');
 
 //route for faculty

@@ -24,12 +24,12 @@
                     <th>Citizenship</th>
                     <th>Gender</th>
                     <th>Blood Group</th>
-                    <th>Permanent Address</th> 
+                    <!-- <th>Permanent Address</th> 
                     <th>Temporary Address</th>
                     <th>Date of Birth</th>
                     <th>Is Active</th>
-                    <th>Is Alumini</th>
-                    <!-- <th>Action</th> -->
+                    <th>Is Alumini</th> -->
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -42,21 +42,25 @@
                             <td>{{ $student->citizenship }}</td>
                             <td>{{ $student->gender }}</td>
                             <td>{{ $student->blood_group }}</td>
-                            <td>{{ $student->perm_address }}</td>
+                            <!-- <td>{{ $student->perm_address }}</td>
                             <td>{{ $student->temp_address }}</td>
                             <td>{{ $student->dob }}</td>
                             <td>{{ $student->is_active }}</td>
-                            <td>{{ $student->is_almuni }}</td>
-                            <!-- <td>
-                                <a href="#" class="btn btn-info btn-sm">
+                            <td>{{ $student->is_almuni }}</td> -->
+                            <td>
+                                <a href="{{ route('students.show',$student->id) }}" class="btn btn-info btn-sm">
                                     <span class="fa fa-eye"></span></a>
 
-                                    <a href="#" class="btn btn-warning btn-sm">
+                                    <a href="{{ route('students.edit',$student->id) }}" class="btn btn-warning btn-sm">
                                     <span class="fa fa-edit"></span></a>
 
-                                    <a href="#" class="btn btn-danger btn-sm">
-                                    <span class="fa fa-trash"></span></a>
-</td> -->
+                                
+                                    <form method="post" action="{{ route('students.destroy', $student->id)}}" style="display:inline">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm" id="id_btn_students_delete"><span class = "fa fa-trash"></span></button>
+                                    </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

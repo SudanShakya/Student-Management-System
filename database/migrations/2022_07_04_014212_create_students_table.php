@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('mobile', 10) -> unique();
             $table->string('email') -> unique();
             $table->string('citizenship', 20) -> unique();
-            $table->string('gender', 6);
+            $table->string('gender', 7);
             $table->string('blood_group', 3);
             $table->string('perm_address');
             $table->string('temp_address') -> nullable();
