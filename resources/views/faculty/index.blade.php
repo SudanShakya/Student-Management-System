@@ -17,6 +17,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,17 @@
                         <tr>
                             <td>{{ $faculty->id }}</td>
                             <td>{{ $faculty->name }}</td>
+                            <td>
+                                <a href="{{ route('faculty.edit',$faculty->id) }}" class="btn btn-warning btn-sm">
+                                <span class="fa fa-edit"></span></a>
+
+                            
+                                <form method="post" action="{{ route('faculty.destroy', $faculty->id)}}" style="display:inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm" id="id_btn_faculties_delete"><span class = "fa fa-trash"></span></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -60,8 +60,8 @@ class SemesterController extends Controller
      */
     public function show($id)
     {
-        $semester = Semester::find($id);
-        return view ('semester.show',compact('semester'));
+        // $semester = Semester::find($id);
+        // return view ('semester.show',compact('semester'));
     }
 
     /**
