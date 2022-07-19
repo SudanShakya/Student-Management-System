@@ -18,6 +18,7 @@
                     <th>ID</th>
                     <th>Semester Name</th>
                     <th>Is Active</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,17 @@
                             <td>{{ $semester->id }}</td>
                             <td>{{ $semester->semester_name }}</td>
                             <td>{{ $semester->is_active }}</td>
+                            <td>
+                                <a href="{{ route('semester.edit',$semester->id) }}" class="btn btn-warning btn-sm">
+                                <span class="fa fa-edit"></span></a>
+
+                            
+                                <form method="post" action="{{ route('semester.destroy', $semester->id)}}" style="display:inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm" id="id_btn_semesters_delete"><span class = "fa fa-trash"></span></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

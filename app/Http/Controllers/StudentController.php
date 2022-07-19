@@ -84,7 +84,7 @@ class StudentController extends Controller
     {
         //select * from student where id  = $id
         $student = Student::find($id);
-        return view ('student.show',compact('student'));
+    
     }
 
     /**

@@ -61,6 +61,7 @@ class SemesterController extends Controller
     public function show($id)
     {
         $semester = Semester::find($id);
+        return view ('semester.show',compact('semester'));
     }
 
     /**
@@ -86,14 +87,14 @@ class SemesterController extends Controller
     {
         $semester = Semester::find($id);
         
-        $name = $request->get('semester_name');
+        $semester_name = $request->get('semester_name');
         $is_active = $request->get('is_active');
 
         $semester['semester_name'] = $semester_name;
-        $semester['is_active'] = $is_active;
+        $semester['is_active'] = isset($is_active);
 
         $semester->update();
-        return redirect() -> route('semester.show',$id);
+        return redirect() -> route('semester.index',$id);
     }
 
     /**
