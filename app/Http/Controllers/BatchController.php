@@ -69,7 +69,8 @@ class BatchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $batch = Batch::find($id);
+        return view ('batch.edit',compact('batch'));
     }
 
     /**
@@ -81,7 +82,14 @@ class BatchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $batch = Batch::find($id);
+        
+        $batch_name = $request->get('batch_name');
+
+        $batch['batch_name'] = $batch_name;
+
+        $batch->update();
+        return redirect() -> route('batch.index',$id);
     }
 
     /**
@@ -92,6 +100,8 @@ class BatchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $batch = Batch::find($id);
+        $batch -> delete();
+        return redirect() -> route('batch.index');
     }
 }

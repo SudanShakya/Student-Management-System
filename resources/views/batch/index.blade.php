@@ -17,6 +17,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Batch Name</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,17 @@
                         <tr>
                             <td>{{ $batch->id }}</td>
                             <td>{{ $batch->batch_name }}</td>
+                            <td>
+                                <a href="{{ route('batch.edit',$batch->id) }}" class="btn btn-warning btn-sm">
+                                <span class="fa fa-edit"></span></a>
+
+                            
+                                <form method="post" action="{{ route('batch.destroy', $batch->id)}}" style="display:inline">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm" id="id_btn_batches_delete"><span class = "fa fa-trash"></span></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
