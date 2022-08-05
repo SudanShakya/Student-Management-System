@@ -44,3 +44,20 @@ Route::resource('semester','SemesterController');
 
 //route for batch
 Route::resource('batch','BatchController');
+
+//route for eduction info
+Route::resource('educationinfos','EductionInfoController');
+Route::get('student/{student_id}/educationinfo/create','EducationalInfoController@createEducationInfo')
+    ->name('student-educationinfo.create');
+
+//route for college info
+Route::resource('collegeinfos','CollegeInfoController');
+Route::get('student/{student_id}/family-info/create','FamilyInfoController@createFamilyInfo')
+->name('student-familyinfo.create');
+Route::get('student/{student_id}/college-info/create','CollegeInfoController@createCollegeInfo')
+->name('student-collegeinfo.create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
